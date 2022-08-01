@@ -11,15 +11,26 @@ private:
 	bool mAllRounder = false;
 	std::string mDescription = ""; // Right handed batsman, right arm off spin bowler...
 public:
-	Player(int bat, int mBowl, bool allRounder, std::string description) {
+	Player(int bat, int bowl, bool allRounder, std::string description) {
 		mBat = bat;
 		mBowl = bowl;
 		mAllRounder = allRounder;
 		mDescription = description;
 	}
 
-	void stateInformation() {
-		std::cout << "This player has a batting rating of " << mBat << " and a bowling rating of " << mBowl << ""
+	void getPlayerStats() {
+		std::string isRounder = "No";
+
+		if (mAllRounder == true) isRounder = "Yes";
+		std::cout << "\nBatting Rating: " 
+			<< std::to_string(mBat) 
+			<< "\nBowling Rating: " 
+			<< std::to_string(mBowl) 
+			<< "\nAll Rounder: " 
+			<< isRounder << "\nDescription: " 
+			<< mDescription  
+			<< "\n" 
+			<< std::endl;
 	}
 };
 

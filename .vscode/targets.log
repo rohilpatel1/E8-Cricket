@@ -6,9 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
 
-# Make data base, printed on Mon Aug  1 17:39:59 2022
+# Make data base, printed on Mon Aug  1 17:42:36 2022
 
 # Variables
 
@@ -30,16 +29,16 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `main.d', line 1)
-MAKEFILE_LIST :=  Makefile main.d
-# `override' directive (from `Makefile', line 4)
-CXXFLAGS = -g -Wno-everything
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
 VSCODE_CWD = /
 # environment
 PATH = /opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+# makefile (from `Makefile', line 1)
+files = main.cpp
 # environment
 LaunchInstanceID = 46FB307D-A5CC-4E35-AEC0-AD15BAEBBCEC
 # environment
@@ -50,8 +49,6 @@ ELECTRON_RUN_AS_NODE = 1
 SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.fxngFx0kRA/Listeners
 # automatic
 %F = $(notdir $%)
-# makefile (from `Makefile', line 7)
-OBJS = $(SRCS:.cpp=.o)
 # environment
 PWD = /Users/Rohil/Desktop/Code/CPP/E8-Cricket
 # environment
@@ -78,8 +75,6 @@ XPC_FLAGS = 0x0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
-# makefile (from `Makefile', line 6)
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.cpp' -print | sed -e 's/ /\\ /g')
 # environment
 SHLVL = 2
 # default
@@ -87,7 +82,7 @@ MAKE_VERSION := 3.81
 # environment
 USER = Rohil
 # makefile
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := start
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -122,16 +117,12 @@ COMMAND_MODE = unix2003
 MAKEFILES := 
 # automatic
 <F = $(notdir $<)
-# makefile (from `Makefile', line 3)
-CXX = clang++
 # environment
 LC_ALL = C
 # environment
 SECURITYSESSIONID = 186a3
 # automatic
 ^F = $(notdir $^)
-# makefile (from `Makefile', line 8)
-DEPS = $(SRCS:.cpp=.d)
 # default
 SUFFIXES := 
 # default
@@ -143,7 +134,7 @@ LANG = C
 # environment
 VSCODE_PID = 1983
 # variable set hash-table stats:
-# Load=65/1024=6%, Rehash=0, Collisions=9/112=8%
+# Load=61/1024=6%, Rehash=0, Collisions=1/85=1%
 
 # Pattern-specific Variable Values
 
@@ -151,37 +142,24 @@ VSCODE_PID = 1983
 
 # Directories
 
-# . (device 16777220, inode 8678274243): 14 files, no impossibilities.
+# . (device 16777220, inode 8678274243): 9 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 9 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-%.d: %.cpp
-#  commands to execute (from `Makefile', line 11):
-	@set -e; rm -f "$@"; \
-	$(CXX) -MM $(CXXFLAGS) "$<" > "$@.$$$$"; \
-	sed 's,\([^:]*\)\.o[ :]*,\1.o \1.d : ,g' < "$@.$$$$" > "$@"; \
-	rm -f "$@.$$$$"
-	
-
-%.o: %.cpp
-#  commands to execute (from `Makefile', line 17):
-	$(CXX) $(CXXFLAGS) -c "$<" -o "$@"
-	
-
-# 2 implicit rules, 0 (0.0%) terminal.
+# No implicit rules.
 
 # Files
 
-all: main clean-deps
+# Not a target:
+all:
 #  Command-line target.
 #  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
+#  File has not been updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/8=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -192,51 +170,26 @@ all: main clean-deps
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-01 17:39:21
+#  Last modified 2022-08-01 17:41:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-main.cpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-01 17:39:22
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-structures/player.hpp:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-01 17:39:22
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-clean-deps:
+start:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 31):
-	rm -f $(DEPS)
+#  commands to execute (from `Makefile', line 4):
+	g++ -std=c++17 $(files) && ./a.out
 	
 
-main.d: main.cpp main.cpp structures/player.hpp
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `main'
-#  Last modified 2022-08-01 17:39:59
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 11):
-	@set -e; rm -f "$@"; \
-	$(CXX) -MM $(CXXFLAGS) "$<" > "$@.$$$$"; \
-	sed 's,\([^:]*\)\.o[ :]*,\1.o \1.d : ,g' < "$@.$$$$" > "$@"; \
-	rm -f "$@.$$$$"
+build:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 7):
+	g++ -std=c++17 $(files)
 	
 
 # Not a target:
@@ -245,75 +198,37 @@ main.d: main.cpp main.cpp structures/player.hpp
 #  Modification time never checked.
 #  File has not been updated.
 
+run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 10):
+	./a.out
+	
+
 clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 28):
-	rm -f $(OBJS) $(DEPS) main
-	
-
-main-debug: main.o
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  commands to execute (from `Makefile', line 25):
-	$(CXX) $(CXXFLAGS) -O0 $(OBJS) -o "$@"
-	
-
-main: main.o
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
-#  Last modified 2022-08-01 17:39:21
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := main
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := main.o
-# automatic
-# | := 
-# automatic
-# < := main.o
-# automatic
-# ^ := main.o
-# automatic
-# ? := main.o
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/17=12%
-#  commands to execute (from `Makefile', line 22):
-	$(CXX) $(CXXFLAGS) $(OBJS) -o "$@"
-	
-
-main.o: main.cpp main.cpp structures/player.hpp
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: `main'
-#  Last modified 2022-08-01 17:39:22
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 17):
-	$(CXX) $(CXXFLAGS) -c "$<" -o "$@"
+#  commands to execute (from `Makefile', line 13):
+	rm a.out
 	
 
 # files hash-table stats:
-# Load=12/1024=1%, Rehash=0, Collisions=0/40=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/20=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
 # No general (`VPATH' variable) search path.
 
-# # of strings in strcache: 2
+# # of strings in strcache: 1
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
-# strcache free: total = 4080 / max = 4080 / min = 4080 / avg = 4080
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Aug  1 17:39:59 2022
+# Finished Make data base on Mon Aug  1 17:42:36 2022
 
  
+make: *** No rule to make target `all'.  Stop.
+
