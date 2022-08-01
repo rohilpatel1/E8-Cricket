@@ -1,0 +1,13 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/Rohil/Desktop/Code/CPP/E8-Cricket'
+ 
+Makefile:19: main.d: No such file or directory
+
+make: Leaving directory `/Users/Rohil/Desktop/Code/CPP/E8-Cricket'
+ 
+make: Entering directory `/Users/Rohil/Desktop/Code/CPP/E8-Cricket'
+clang++ -g -Wno-everything -c "main.cpp" -o "main.o"
+clang++ -g -Wno-everything ./main.o -o "main"
+rm -f ./main.d
+make: Leaving directory `/Users/Rohil/Desktop/Code/CPP/E8-Cricket'
+ 
